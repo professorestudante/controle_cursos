@@ -1,0 +1,252 @@
+
+body{
+    background-color: #EAF4D9;
+
+
+}
+.conteudo{
+    position: absolute;
+    margin-top: 400px;
+   margin-left: auto;
+   margin-right: auto;
+   left: 6.5%;
+   width: 1050px;
+   text-align: justify;
+    
+    
+}
+
+#acesso {
+    font-family: Verdana,Tahoma,sans-serif;
+	font-size: 15px;
+    
+    max-width: 600px;
+	margin:0;
+	padding:10px;
+        float: left;
+        margin-left:40px;          
+        background-color: #FFF;  
+        border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+}
+
+.instrucoes{
+    
+    position: relative;
+    left: 20px;
+    text-justify: auto;
+    text-align: justify;
+    font-family: Verdana, sans-serif;
+
+    
+}
+.instrucoes h3{
+    margin-bottom: 10px;
+    
+}
+
+.barra{
+    height: 40px;
+    background-color: #069350;
+    color: white;
+    
+    margin-bottom: 10px;
+        border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    
+}
+.barra h3{
+        padding-top: 8px;
+        text-align: center;
+}
+#acesso li{
+    color: #006600;
+    margin-bottom: 10px;
+}
+#submit, #reset {
+    margin-top:20px;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+    color: black;
+}
+#reset{
+    margin-left: 20px;
+}
+
+#ul_acesso{
+    list-style-type:none;
+}
+#cx_matricula, #cx_email{
+    margin-left: 20px;
+    width: 250px;
+    padding: 6px;
+  
+    color: #006600;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+}
+
+#cx_email{
+ 
+}
+#cx_matricula{
+    margin-left: 38.5px;
+}
+/*CÓDIGO DO MENU PRINCIPAL*/
+*{margin: 0; padding: 0;}
+
+.logo{
+    position: absolute;
+    width: 1210px;
+    height: 245px;
+    background-color: white;
+    left: 35px;
+}
+
+
+.menu{
+position: relative;
+top: 245px;
+list-style:none; 
+border:1px solid #273039; 
+float:left; 
+background-color: #273039;
+width: 1210px;
+height: 60px;
+left: 35px;
+
+}
+.menu li{
+    font-family: 'Arial';
+}
+.menu li{
+position:relative; 
+float:left; 
+margin-top: 14px;
+margin-left: 10px;
+}
+
+.menu li a{
+    color:#BEBEBE; 
+    text-decoration:none; 
+    padding:5px 10px; 
+    display:block;
+}
+
+.menu li a:hover{
+    
+    color:#FFF;
+    
+    background:#333; 
+
+    -moz-box-shadow:0 3px 10px 0 #CCC; 
+    -webkit-box-shadow:0 3px 10px 0 #ccc; 
+
+}
+
+.menu li  ul{
+position:absolute; 
+top:25px; 
+left:0;
+background-color:#273039; 
+display:none;
+}
+
+.menu li:hover ul, .menu li.over ul{display:block;}
+
+.menu li ul li{
+display:block; 
+width:150px;
+}
+.social{
+   float: right;
+ 
+}
+.social li ul li{
+
+        padding:0px;
+	margin:0px;
+	list-style:none;
+
+}
+.social ul li { display: inline; }
+
+social ul li a {
+	
+	display: inline-block;
+}
+.areaCursista{
+    font-family: Verdana, sans-serif;
+
+    
+}
+#listaCursos{
+    line-height: 30px;
+}
+
+#reset2, #submit2{
+    margin-top:20px;
+    height: 30px;
+
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+    color: black;
+}
+#reset2{
+    width: 80px;
+}
+#submit2{
+    width: 190px;
+}
+
+.aviso{
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    margin-top: 10px;
+    width: 550px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+}
+.aviso ul li{
+    position: relative;
+    margin-left: 20px;
+}
+
+#submit3, #reset3{
+    margin-top:20px;
+    height: 30px;
+    width: 90px;
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+    color: black;
+}
+#cx_valida{
+    
+    margin-top: 10px;
+    position: relative;
+    width: 400px;
+    padding: 6px;
+  
+    color: #006600;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+}

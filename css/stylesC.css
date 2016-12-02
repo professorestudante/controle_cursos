@@ -1,0 +1,76 @@
+
+.frente img{
+    
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    text-align:left;
+    top: 0;
+   border-style: dashed;
+    
+}
+
+.inicio,.cursos,.data,.codigo,.horas{
+    font-family:fantasy,cursive,serif;
+    font-size: 25px;  
+    color:#056EBF;
+    font-stretch: expanded;
+    text-align: justify;
+    max-width: 800px;
+
+}
+.nome{
+    text-decoration: underline;
+    
+}
+.inicio{
+   position: absolute;
+   left: 85px;
+   top: 150px;  
+    
+}
+.cursos{
+   position: absolute;
+   left: 90px;  
+   top:245px;
+}
+.data{
+  position: absolute;
+   left: 85px;
+   top:420px; 
+ 
+ 
+}
+hr{
+    width: 45%;
+    text-align: right; /* Para o IE */
+    margin-right:0 0 0 auto; /* Para navegadores standard */
+     
+}
+
+.horas{
+   position: absolute;
+   left: 85px;
+   top: 380px; 
+}
+.quebrapagina {
+   page-break-after: always;
+}
+
+.codigo{
+    position: absolute;
+    font-family:"Baskerville Old Face","Helvetica",serif;
+    font-size: 17px;  
+    color:#1874CD;
+    font-stretch: expanded;
+    left: 675px;
+    top: 65px;
+}
+
+
+
+
