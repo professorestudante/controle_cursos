@@ -7,8 +7,12 @@ and open the template in the editor.
 
         
         <?php
-        echo '<div class="areaCursista">';
+        /**
+         * verifica os dados do usuario e informa se há certificados e caso haja, os exibe uma lista de
+         * seleção do tipo rádio que, ao ser acionados leva a página  controle_certificado
+         */
         include_once 'header.php';
+        echo '<div class="areaCursista">';
         session_start();
         function __autoload($classe){
             include_once '../classes/DAO/'.$classe.'.class.php';

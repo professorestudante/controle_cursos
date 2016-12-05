@@ -1,9 +1,15 @@
 
 <?php 
+/**
+ * recebe as variaveis de sessão enviadas de controle_certiticados.php gera em PDF o 
+ * certificado total de módulos cursados e insere os dados na tabela controle_certificados
+ * se o certificado ainda não foi emitido.
+ */
 session_start();
 require_once("../classes/dompdf/autoload.inc.php");
 include_once '../classes/DAO/CursoDAO.class.php';
 include_once '../classes/DAO/Certificados.class.php';
+
        
         $matricula=$_SESSION["matricula"];
       

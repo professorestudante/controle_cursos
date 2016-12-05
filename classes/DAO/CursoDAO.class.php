@@ -3,7 +3,7 @@
 /**
  * Contém os métodos de acesso ao banco de dados curso_coordenadores
  *
- * @author cefop 9
+ * @author Francisco Filho - prof.francisco2014@gmail.com
  */
 
 
@@ -19,6 +19,10 @@ class CursoDAO extends PDOConnectionFactory{
     }
 
     public function listaCursoAprovado($matricula){
+        /**
+         * Retorna um array com os dados (titulo, codigo) dos cursos aprovados referentes a
+         * matricula inserida
+         */
         $cursos=array();
          try {
             $stmt= $this->conex->query("SELECT curso.titulo, curso.cod_curso FROM curso INNER 
@@ -38,6 +42,10 @@ class CursoDAO extends PDOConnectionFactory{
         
     }
        public function listaHoras($matricula){
+           /**
+            * retorna o total de horas cursadas referente à todos os cursos
+            * cursados e aprovados
+            */
         $horas=0;
          try {
             $stmt= $this->conex->query("SELECT curso.horas FROM curso INNER 
@@ -88,6 +96,12 @@ class CursoDAO extends PDOConnectionFactory{
         
     }
     public function listaData($matricula,$cod_curso){
+        /**
+         * Retorna a data mais recente de conclusão do curso referente ao código
+         * inserido. Se não for inserido o código do curso, retorna a data mais
+         * recente dos total de cursos realizados.
+         * 
+         */
         $data = array();
          try {
              if(strlen($cod_curso)==null){
@@ -117,8 +131,9 @@ class CursoDAO extends PDOConnectionFactory{
     
     public function retornaAprovacao($matricula){
         /**
-         * retorna um array tendo como indice o codigo do curso e um boleano indicando se foi aprovado
-         * deve ser inserido na funcao retornaCodigoAprovacao()
+         * retorna um array tendo como indice o codigo do curso e um boleano 
+         * indicando se foi aprovado (TRUE) ou não (FALSE).
+         * O retono desse método deve ser inserido na funcao retornaCodigoAprovacaoTotal()
          */
        $aprovado=array();// 
        $aprovado['LPP']=false;
@@ -146,24 +161,20 @@ class CursoDAO extends PDOConnectionFactory{
                 } 
             } 
            return $aprovado;
-           /* 
-            foreach ($aprovado as $value) {
-                echo $value;
-            }*/
-         
-            
+           
         } catch (Exception $ex) {
             echo 'Erro : '.$ex->getMessage();
 
         }
     }
-    
-    
+
     public function retornaCodigoAprovacaoTotal($matricula){
-            $aprovacao=  $this->retornaAprovacao($matricula);
-        /**
-             * o parâmetro $aprovacao é o retorno do método retornaAprovacao
+            
+             /**
+              * Retorna um código de aprovação todos os cursos aprovados e que ainda
+              * não aparecem na tabela controle_certificados.
              */
+            $aprovacao=  $this->retornaAprovacao($matricula);//retorno do método retornaAprovacao
             $certificado=array();
             $certificado['GEL']=TRUE;
             $certificado['LPP']=TRUE;
@@ -215,6 +226,9 @@ class CursoDAO extends PDOConnectionFactory{
         }
     }
      public function retornaUltimoId(){
+         /**
+          * retorna o id mais recente da tabela controle_certificado
+          */
        
        $stmt=  $this->conex->query( "SELECT MAX(id) FROM `controle_certificados`"
                . " WHERE 1"); 
@@ -223,6 +237,13 @@ class CursoDAO extends PDOConnectionFactory{
     }
     function gerarIdCertificado($matricula, $cod_aprovacao){
         /* @var $ultimoId type */
+        /**
+         * verifica se já existe referencias a matricula eo codigo inseridos na 
+         * tabela controle de certificados, caso não exista, retorna o
+         * o retorno da funçao retornaUltimoId() adicionado a 1. caso exista, 
+         * retorna o id referente a matrícula e o cod_aprovacao na tabela controle
+         * _certificados.
+         */
         $ultimoId=$this->retornaUltimoId();
                 $id=0;  
                 try{
@@ -249,10 +270,11 @@ class CursoDAO extends PDOConnectionFactory{
             
     function IserirCodigo($id,$certificados){
         /**
-         * recebe como parametros o ano da conclusao do certificado, o código dos
-         * cursos realizados, e a id do códgo de certificado (retorno da funcao exibeIdCerticado
+         * recebe como parametros o código dos cursos realizados, e a id do 
+         * códgo de certificado (retorno da funcao exibeIdCerticado). Verifica se
+         * o id já existe na tabela controle_certificado e, caso não exista,
+         * insere os dados do objeto $certificados no base de dados.
          */
-           $teste=0;
           try{
                $stmt=  $this->conex->query("SELECT id, matri  FROM "
                     . "`controle_certificados` WHERE id=".$id);
@@ -323,6 +345,10 @@ class CursoDAO extends PDOConnectionFactory{
     }
     
     function listarCodCertificadosEmitidos($matricula){
+        /**
+         * retorna um array com os dados do campo cod_curso da tabela controle_certificados
+         * referentes a matricula inserida
+         */
         try{
             $codigos=array();
             $codigos[0]='';
@@ -330,7 +356,6 @@ class CursoDAO extends PDOConnectionFactory{
                     . "`controle_certificados` WHERE matri='".$matricula."'");
             
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){ 
-                //$codigos[$i]=$row['cod_curso'];
                 array_push($codigos, $row['cod_curso']);
                 
                
@@ -343,6 +368,10 @@ class CursoDAO extends PDOConnectionFactory{
         }    
     }
     function listarCodAutenticacao($matricula,$cod_curso){
+        /**
+         * retorna um array com os dados do campo cod_certificado da tabela controle_certificados
+         * referentes a matricula e o código do curso inseridos.
+         */
         try{
             $codigo="";
 
@@ -364,7 +393,8 @@ class CursoDAO extends PDOConnectionFactory{
     
     function reimprimeTotal($matricula){
         /**
-         * retorna os dados
+         * retorna os dados dados da tabela controle_certificados referentes a
+         * matricula inserida
          */
         try{
             $certificado= array();
@@ -397,15 +427,4 @@ class CursoDAO extends PDOConnectionFactory{
         } 
     }
     
-    public function dadosCertificadoEmitido($arrayCodigo){
-        /**recebe o array de retorno da funcao verificaAutenticacao e 
-         * e retorna um array com o nome do cursista, código do curso e a data de 
-         * conclusao.
-         */
-        $arrayCursista=  $this->listaCursista($arrayCodigo['matri']);
-        $nome=$arrayCursista['nome'];
-        
-    }
-    
-
 }
