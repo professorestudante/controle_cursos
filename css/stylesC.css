@@ -1,16 +1,16 @@
 
 .frente img{
-    
     bottom: 0;
     color: black;
     left: 0;
     overflow: auto;
-    position: absolute;
+    position: relative;
     right: 0;
     padding: 20px;
     text-align:left;
     top: 0;
    border-style: dashed;
+  
     
 }
 
@@ -33,11 +33,7 @@
    top: 150px;  
     
 }
-.cursos{
-   position: absolute;
-   left: 90px;  
-   top:245px;
-}
+
 .data{
   position: absolute;
    left: 85px;

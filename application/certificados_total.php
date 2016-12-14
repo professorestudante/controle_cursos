@@ -30,7 +30,7 @@ include_once '../classes/DAO/Certificados.class.php';
 
         foreach ($cursosArray as $value) {
             if($value!=""){
-                $cursos.="<li>".$value.'</li>';
+                $cursos.=" &nbsp; &nbsp; &nbsp;#".$value.'<br>';
                 
             }
         }
@@ -65,14 +65,12 @@ $html= '<!DOCTYPE html>
     <body>
        <img class="frente" src="../img/frente.JPG" width="950">
         <div class="inicio">
-            <p> Certificamos que <span class="nome">'.$nome["nome"].'</span>
+            Certificamos que <span class="nome">'.$nome["nome"].'</span>
         participou do Programa de Formação de Coordenadores Escolares da Superintendência das 
-        Escolas Estaduais de Fortaleza, concluindo com êxito o(s) Módulos(s):</p></div>
-        <div class="cursos">  
-       <ul>'.$cursos.'</ul>
-       </div>
-       <div class ="horas"><p>Perfazendo uma carga horária de '.$horas.' horas </p></div>
-       <div class="data"> <p>Fortaleza, '.$dia.' de '.$mes_ext[$mes].' de '.$ano.'</p> </div> 
+        Escolas Estaduais de Fortaleza, concluindo com êxito o(s) Módulos(s):<br>
+     '.$cursos.'
+       Perfazendo uma carga horária de '.$horas.' horas
+       <p>Fortaleza, '.$dia.' de '.$mes_ext[$mes].' de '.$ano.'</p></div>
         <div class="quebrapagina"></div>
         <div class="verso">
         <img src="../img/verso.jpg" width="950"> 
